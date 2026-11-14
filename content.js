@@ -9,6 +9,7 @@ window.GUIDE = {
     "用 ChatGPT 写文案、做海报，用 Google Flow 手机网页做产品宣传视频。",
     "Use ChatGPT for text and a poster, and Google Flow in your phone browser for a product video."
   ],
+  "staticPages": true,
   "recordings": {
     "checked": "2026-11-14",
     "clips": {
