@@ -6,8 +6,8 @@ window.GUIDE = {
     "AI marketing for hawkers"
   ],
   "intro": [
-    "用 ChatGPT 写文案、做海报，用 Google Flow 手机网页做产品宣传视频。",
-    "Use ChatGPT for text and a poster, and Google Flow in your phone browser for a product video."
+    "先用 ChatGPT 写文案、做海报，再用 Flow 应用建立分身和制作口播，最后在手机网页制作产品短片。",
+    "Complete ChatGPT writing and a poster, then use the Flow app for your avatar and spoken video, followed by a product video in the phone browser."
   ],
   "staticPages": true,
   "recordings": {
@@ -750,8 +750,8 @@ window.GUIDE = {
   },
   "plan": {
     "budget": [
-      "本日先安排一次图片生成和一次照片上传；这是课堂安排，不是免费额度保证。 另外在 Google Flow 安排一个视频，先确认额度花费。",
-      "Plan one image generation and one photo upload today. These are classroom targets, not guaranteed free allowances. Also plan one video in Google Flow and check its credit cost first."
+      "课堂安排一次 ChatGPT 图片生成和一次照片上传；不是免费额度保证。Flow 安排两个视频：分身预计10点，产品短片预计30点，共40点。生成前检查实际报价。",
+      "Plan one ChatGPT image generation and one photo upload, without a guaranteed allowance. In Flow, plan two videos: an estimated 10 credits for the avatar and 30 for the product video, totalling 40. Check the actual quote before generating."
     ],
     "prepare": [
       "课前可先登录；当天尽量留出图片和上传额度。先检查文字，再生成图片。",
@@ -777,7 +777,8 @@ window.GUIDE = {
     "assets": [
       "prepared-poster-zh.png",
       "prepared-poster-en.png",
-      "hawkers-mascot.png"
+      "hawkers-mascot.png",
+      "product-layout-photo.png"
     ],
     "optional": [
       {
@@ -829,29 +830,44 @@ window.GUIDE = {
       "aspectRatio": "9:16",
       "observedDurationSeconds": 10,
       "observedCreditCost": 30,
-      "checked": "2026-11-13",
+      "checked": "2026-11-17",
       "physicalPhoneTested": false,
       "practiceResolution": "720p",
       "plannedDurationSeconds": 10,
       "observedResolution": "720p",
       "practiceSettingCreditCost": 30,
       "creditCostNote": "One 10-second 720p video quotes 30 credits. A lower-resolution 360p setting quotes 10 credits when allowance is limited."
-    }
+    },
+    "avatar": {
+      "mode": "app",
+      "model": "Omni Flash 1.2",
+      "resolution": "360p",
+      "seconds": 10,
+      "outputs": 1,
+      "estimatedCredits": 10,
+      "setupCostVerified": false,
+      "androidTested": false,
+      "iphoneTested": false,
+      "publicExampleConsent": false,
+      "androidSetupScreensProvided": true,
+      "setupScreenshotSource": "User-provided 2026-11-17"
+    },
+    "flowTotalEstimatedCredits": 40
   },
   "lessons": [
     {
       "id": "first",
       "title": [
-        "认识 ChatGPT，开始提问",
-        "Meet ChatGPT and ask a question"
+        "介绍自己的小摊",
+        "Introduce your stall"
       ],
       "time": [
         "约 20 分钟",
         "About 20 minutes"
       ],
       "goal": [
-        "发送一个问题，阅读回答，再接着聊。",
-        "Send a question, read the reply and keep the conversation going."
+        "说清楚自己的生意，再补充有用的资料。",
+        "Describe your business, then add useful details."
       ],
       "steps": [
         [
@@ -872,13 +888,53 @@ window.GUIDE = {
         ]
       ],
       "prompt": [
-        "请举三个 AI 在日常生活中能帮忙的例子，每个一句话。",
-        "Give three examples of how AI can help in everyday life, one sentence each."
+        "这是虚构练习：我在加影经营阿美糕点，卖咖椰角。你可以怎样帮我介绍小摊？请给三个建议。不要编造价格、食材或营业时间。",
+        "Fictional practice: I run A Mei Bakery in Kajang, selling kaya puffs. Suggest three ways to introduce my stall. Do not invent prices, ingredients or opening hours."
       ],
       "done": [
         "我能找到输入框、发送问题，并读到回答。",
         "I can find the text box, send a question and read an answer."
-      ]
+      ],
+      "stages": [
+        {
+          "reuse": "Open ChatGPT"
+        },
+        {
+          "reuse": "PROMPT"
+        },
+        {
+          "reuse": "SEND"
+        },
+        {
+          "title": [
+            "加一个条件",
+            "Add a condition"
+          ],
+          "body": [
+            "复制这段文字，在同一个 ChatGPT 聊天里发送。",
+            "Copy this text and send it in the same ChatGPT chat."
+          ],
+          "icon": "chat",
+          "prompt": [
+            "补充虚构资料：一盒 RM10，星期六上午9点至中午营业，可私讯订购。请用这些资料写一段亲切的介绍，不要加入其他优惠。",
+            "More fictional details: RM10 a box, open Saturday 9 am to noon, pre-orders by direct message. Write a friendly introduction using only these details, without adding offers."
+          ],
+          "open": true
+        },
+        {
+          "title": [
+            "读一读，再调整",
+            "Read and refine"
+          ],
+          "body": [
+            "核对地点、价格和时间。可以接着说「请缩短一点」。",
+            "Check the location, price and hours. Follow up with “Please make it shorter.”"
+          ],
+          "icon": "check"
+        }
+      ],
+      "section": "chatgpt",
+      "platform": "chatgpt"
     },
     {
       "id": "voice",
@@ -891,8 +947,8 @@ window.GUIDE = {
         "About 15 minutes"
       ],
       "goal": [
-        "用语音输入问题，确认文字后发送。",
-        "Use your voice to enter a question, check the words and send it."
+        "口述小摊资料，核对名字、价格和时间。",
+        "Dictate stall details and check names, prices and times."
       ],
       "steps": [
         [
@@ -913,27 +969,75 @@ window.GUIDE = {
         ]
       ],
       "prompt": [
-        "请写一句简短、亲切的生日祝福。",
-        "Write one short, friendly birthday greeting."
+        "这是虚构练习：阿美糕点在加影卖咖椰角，一盒十令吉，星期六上午九点至中午营业，可以私讯订购。请整理成约五十字的中文介绍；缺少资料先问我。",
+        "Fictional practice: A Mei Bakery in Kajang sells kaya puffs at ten ringgit a box. Open Saturday nine to noon; pre-order by direct message. Make a short introduction, about fifty Chinese characters. Ask about missing facts."
       ],
       "done": [
         "我能说一句话、检查文字，再发送。",
         "I can dictate a sentence, check the text and send it."
-      ]
+      ],
+      "stages": [
+        {
+          "reuse": "Tap the microphone",
+          "body": [
+            "在安静的地方，点应用或键盘麦克风。需要时由自己选择麦克风权限。",
+            "In a quiet place, tap the app or keyboard microphone. Choose the microphone permission yourself if requested."
+          ]
+        },
+        {
+          "reuse": "PROMPT",
+          "body": [
+            "靠近手机，慢慢说出这段话。",
+            "Hold the phone nearby and say this slowly."
+          ]
+        },
+        {
+          "reuse": "Check the words, then send"
+        },
+        {
+          "title": [
+            "再换一种说法",
+            "Try another wording"
+          ],
+          "body": [
+            "复制这段文字，在同一个 ChatGPT 聊天里发送。",
+            "Copy this text and send it in the same ChatGPT chat."
+          ],
+          "icon": "chat",
+          "prompt": [
+            "请改成适合当面向顾客介绍的一两句话，保留正确价格和时间。",
+            "Make this one or two sentences to say to a customer, keeping the correct price and hours."
+          ],
+          "open": true
+        },
+        {
+          "title": [
+            "核对回答",
+            "Check the reply"
+          ],
+          "body": [
+            "再看一次店名、十令吉和营业时间，有误就先改正。",
+            "Check the stall name, ten-ringgit price and hours again. Correct errors before using it."
+          ],
+          "icon": "check"
+        }
+      ],
+      "section": "chatgpt",
+      "platform": "chatgpt"
     },
     {
       "id": "business-copy",
       "title": [
-        "为生意写一段介绍",
-        "Write an introduction for your business"
+        "写菜单和产品介绍",
+        "Write menu and product introductions"
       ],
       "time": [
         "约30分钟",
         "About 30 minutes"
       ],
       "goal": [
-        "写一段资料准确、语气亲切的宣传文字。",
-        "Prepare a friendly promotional message with accurate details."
+        "用同一份真实资料写两个版本，再准备口播。",
+        "Use the same confirmed facts for two versions and a spoken message."
       ],
       "steps": [
         [
@@ -954,13 +1058,153 @@ window.GUIDE = {
         ]
       ],
       "prompt": [
-        "以下是虚构练习资料：阿美糕点，咖椰角一盒 RM10，加影，周六上午9点至中午12点，私讯订购。请写一段简短亲切的 WhatsApp 宣传文字，不加其他优惠。",
-        "Fictional practice details: A Mei Bakery, kaya puffs RM10 per box, Kajang, Saturday 9am–noon, orders by private message. Write a short, friendly WhatsApp promotion using only these details."
+        "虚构练习资料：阿美糕点咖椰角，一盒 RM10，加影，星期六上午9点至中午营业，可私讯订购。请写两个中文版本：菜单介绍不超过30字，社交媒体介绍不超过60字。只用已提供资料，不加健康、认证或优惠说法。",
+        "Fictional practice: A Mei Bakery kaya puffs, RM10 a box, Kajang, Saturday 9 am to noon, pre-order by direct message. Write a menu introduction under 30 Chinese characters and a social introduction under 60. Use only these facts; add no health, certification or discount claims."
       ],
       "done": [
         "我有一段资料正确、可以保存的宣传文字。",
         "I have saved a promotional message with correct facts."
-      ]
+      ],
+      "stages": [
+        {
+          "reuse": "Prepare your product details"
+        },
+        {
+          "reuse": "PROMPT"
+        },
+        {
+          "reuse": "SEND"
+        },
+        {
+          "title": [
+            "调整两个版本",
+            "Revise both versions"
+          ],
+          "body": [
+            "复制这段文字，在同一个 ChatGPT 聊天里发送。",
+            "Copy this text and send it in the same ChatGPT chat."
+          ],
+          "icon": "chat",
+          "prompt": [
+            "菜单版再简洁一点，社交媒体版亲切一点。价格和订购方式保持不变。",
+            "Make the menu version more concise and the social version warmer. Keep the price and ordering method unchanged."
+          ],
+          "open": true
+        },
+        {
+          "reuse": "Check the details"
+        },
+        {
+          "title": [
+            "准备视频口播",
+            "Prepare the video script"
+          ],
+          "body": [
+            "复制这段文字，在同一个 ChatGPT 聊天里发送。",
+            "Copy this text and send it in the same ChatGPT chat."
+          ],
+          "icon": "chat",
+          "prompt": [
+            "请整理一句约十秒可以说完的中文口播。只使用：咖椰角一盒十令吉，欢迎私讯预订。谢谢支持！不要加其他资料。",
+            "Prepare a spoken line lasting about ten seconds using only: A box of kaya puffs is ten ringgit. Message us to pre-order. Thank you for your support! Do not add details."
+          ],
+          "open": true
+        },
+        {
+          "title": [
+            "保留口播",
+            "Keep your spoken line"
+          ],
+          "body": [
+            "把这句虚构练习口播复制到手机备忘录，稍后在 Flow 使用。自己的宣传须换成实际资料。",
+            "Copy this fictional practice line into your phone notes for Flow. Use actual facts for your own promotion."
+          ],
+          "icon": "copy",
+          "prompt": [
+            "咖椰角一盒十令吉，欢迎私讯预订。谢谢支持！",
+            "A box of kaya puffs is ten ringgit. Message us to pre-order. Thank you for your support!"
+          ],
+          "copyDestination": "notes"
+        }
+      ],
+      "section": "chatgpt",
+      "platform": "chatgpt"
+    },
+    {
+      "id": "social",
+      "title": [
+        "写帖文，安排一周内容",
+        "Write posts and plan your week"
+      ],
+      "time": [
+        "约 35 分钟",
+        "About 35 minutes"
+      ],
+      "goal": [
+        "准备两段帖文，安排接下来一周的内容。",
+        "Prepare two captions and a week of content ideas."
+      ],
+      "steps": [
+        [
+          "把产品资料发给 ChatGPT，请它写两个帖文版本。",
+          "Send your product details to ChatGPT for two caption versions."
+        ],
+        [
+          "核对价格、时间和订购方式，再复制文字。",
+          "Check price, time and ordering details, then copy the text."
+        ],
+        [
+          "请 ChatGPT 安排七天的帖文主题，每天一个。",
+          "Ask ChatGPT for seven post topics, one for each day."
+        ],
+        [
+          "检查计划，再点复制，方便稍后使用。",
+          "Check the plan, then tap Copy to use it later."
+        ]
+      ],
+      "prompt": [
+        "用这些虚构资料写两则中文帖文，每则不超过80字：阿美糕点咖椰角，一盒 RM10，加影，星期六上午9点至中午营业，可私讯订购。第一则介绍产品，第二则提醒营业时间和预订方式。语气亲切，不添加其他优惠或资料。",
+        "Write two Chinese social posts, each under 80 characters, using fictional details: A Mei Bakery kaya puffs, RM10 a box, Kajang, Saturday 9 am to noon, pre-order by direct message. Introduce the product in the first; give opening hours and ordering information in the second. Add no other offers or facts."
+      ],
+      "done": [
+        "我保存了两段帖文，并知道未来七天可以发什么。",
+        "I saved two captions and know what I could post over seven days."
+      ],
+      "stages": [
+        {
+          "reuse": "PROMPT"
+        },
+        {
+          "reuse": "SEND"
+        },
+        {
+          "title": [
+            "让两则各有重点",
+            "Give each post a focus"
+          ],
+          "body": [
+            "复制这段文字，在同一个 ChatGPT 聊天里发送。",
+            "Copy this text and send it in the same ChatGPT chat."
+          ],
+          "icon": "chat",
+          "prompt": [
+            "请减少两则帖文重复的内容，各保留一句清楚的行动提醒。",
+            "Reduce repetition between the posts and keep one clear call to action in each."
+          ],
+          "open": true
+        },
+        {
+          "reuse": "Check and copy the captions"
+        },
+        {
+          "reuse": "Ask for seven post topics"
+        },
+        {
+          "reuse": "Keep the plan"
+        }
+      ],
+      "section": "chatgpt",
+      "platform": "chatgpt"
     },
     {
       "id": "poster",
@@ -1009,6 +1253,764 @@ window.GUIDE = {
       "done": [
         "我保存了海报，或准备好文字、版面计划和稍后可用的提问。",
         "I saved a poster, or prepared its wording, layout plan and a prompt for later."
+      ],
+      "stages": [
+        {
+          "reuse": "Prepare your photo and wording"
+        },
+        {
+          "title": [
+            "比较两种风格",
+            "Compare two styles"
+          ],
+          "body": [
+            "看看两种预先准备的风格。选一种喜欢的风格，接下来只生成一张主作品。",
+            "Compare these prepared styles. Choose one you like, then generate just one main picture."
+          ],
+          "icon": "image",
+          "styleExamples": true
+        },
+        {
+          "reuse": "ATTACH"
+        },
+        {
+          "reuse": "PROMPT"
+        },
+        {
+          "reuse": "SEND"
+        },
+        {
+          "reuse": "Check your poster"
+        },
+        {
+          "reuse": "SAVE"
+        },
+        {
+          "title": [
+            "先写下修改要求",
+            "Draft a correction"
+          ],
+          "body": [
+            "复制这段文字，在同一个 ChatGPT 聊天里发送。",
+            "Copy this text and send it in the same ChatGPT chat."
+          ],
+          "icon": "chat",
+          "prompt": [
+            "先不要生成图片。请把这项修改写成一句清楚的要求：保留原有画面，只把文字放大，让手机上更容易阅读。",
+            "Do not generate another image. Write one clear correction request: keep the picture and enlarge the text so it is easier to read on a phone."
+          ],
+          "open": true
+        },
+        {
+          "title": [
+            "保留分身短片提示词",
+            "Keep your avatar prompt"
+          ],
+          "body": [
+            "把这段提示词复制到手机备忘录，进入 Flow 应用后直接使用。",
+            "Copy this prompt into your phone notes to use directly in the Flow app."
+          ],
+          "icon": "copy",
+          "prompt": [
+            "@me 制作10秒、9:16竖屏短片。简单背景，自然清楚地说：「咖椰角一盒十令吉，欢迎私讯预订。谢谢支持！」只做一个轻轻挥手的动作，保持自己的面容和声音，不加其他人物、对白或字幕。",
+            "@me Create a 10-second 9:16 video on a simple background. Say naturally and clearly: “A box of kaya puffs is ten ringgit. Message us to pre-order. Thank you for your support!” with one gentle wave. Keep my likeness and voice. Add no other people, dialogue or captions."
+          ],
+          "copyDestination": "notes"
+        },
+        {
+          "title": [
+            "保留下一段的短片提示词",
+            "Keep the video prompt for later"
+          ],
+          "body": [
+            "把这段提示词也复制到备忘录。进入 Flow 后直接使用，不用返回 ChatGPT。",
+            "Copy this video prompt into your notes too. Use it directly in Flow without returning to ChatGPT."
+          ],
+          "icon": "copy",
+          "prompt": [
+            "以这张产品照片为首帧，制作10秒、9:16竖屏宣传短片。以下是虚构练习资料：咖椰角，一盒 RM10，私讯订购。0–3秒：镜头轻轻靠近，显示「咖椰角」。3–7秒：镜头缓慢横移，显示「一盒 RM10」。7–10秒：镜头停稳，显示「私讯订购」。文字要大、简洁，与背景有明显对比，放在不遮挡产品的位置，每句停留足够阅读。保持产品的形状、颜色、数量和包装，不添加人物、新物品、折扣或未经提供的宣传承诺。无需对白，不加音乐。",
+            "Create a 10-second vertical 9:16 promo from this product photo. Fictional practice details: kaya puffs, RM10 per box, orders by private message. Seconds 0–3: move gently closer and show “Kaya puffs”. Seconds 3–7: move slowly sideways and show “RM10 per box”. Seconds 7–10: hold the camera steady and show “Message to order”. Use large, simple, high-contrast text away from the product, with time to read each line. Preserve the product’s shape, colour, quantity and packaging. Add no people, objects, discounts or unsupported claims. No dialogue or music."
+          ],
+          "copyDestination": "notes"
+        }
+      ],
+      "section": "chatgpt",
+      "platform": "chatgpt"
+    },
+    {
+      "id": "safe",
+      "title": [
+        "安心使用 AI",
+        "Use AI safely"
+      ],
+      "time": [
+        "约 25 分钟",
+        "About 25 minutes"
+      ],
+      "goal": [
+        "保护个人资料，重要事情再确认。",
+        "Keep personal information private and double-check important details."
+      ],
+      "steps": [
+        [
+          "密码、验证码、身份证、银行资料和私人病历不要发给 ChatGPT。",
+          "Keep passwords, verification codes, IDs, banking details and medical records out of ChatGPT."
+        ],
+        [
+          "重要的价格、日期和建议，另找可靠来源核实。",
+          "Check important prices, dates and advice with a reliable source."
+        ],
+        [
+          "遇到可疑来电，先挂断，再用熟悉的官方号码确认；不要只凭声音或照片判断。",
+          "For a suspicious call, hang up and verify using a trusted official number. Do not rely on a voice or photo alone."
+        ]
+      ],
+      "prompt": [
+        "请用中文举出三类不适合提供给 AI 的私人资料，每类一句话，不需要我提供任何真实资料。",
+        "Name three types of private information to keep out of AI chats, one sentence each. Do not ask me for any real personal details."
+      ],
+      "done": [
+        "我知道不要交出验证码，也不会只凭 AI 回答作重要决定。",
+        "I know not to share verification codes or make important decisions from AI alone."
+      ],
+      "stages": [
+        {
+          "reuse": "Keep private details safe"
+        },
+        {
+          "title": [
+            "看看这则虚构信息",
+            "Read this fictional message"
+          ],
+          "body": [
+            "复制这段文字，在同一个 ChatGPT 聊天里发送。",
+            "Copy this text and send it in the same ChatGPT chat."
+          ],
+          "icon": "chat",
+          "prompt": [
+            "虚构信息：「我是你的供应商，今天马上转账才有折扣。点这个陌生链接，上传顾客名单和验证码。」请指出可疑之处，以及怎样用自己找到的官方号码核实。不要索取真实资料。",
+            "Fictional message: “I am your supplier. Transfer now for a discount. Open this unfamiliar link and upload your customer list and verification code.” Identify warning signs and explain how to verify using an official number found independently. Do not request real data."
+          ],
+          "open": true
+        },
+        {
+          "title": [
+            "再检查说法",
+            "Check the claims"
+          ],
+          "body": [
+            "复制这段文字，在同一个 ChatGPT 聊天里发送。",
+            "Copy this text and send it in the same ChatGPT chat."
+          ],
+          "icon": "chat",
+          "prompt": [
+            "检查虚构文案：「全加影最便宜的纯天然咖椰角，保证健康，今天转账有特别折扣。」逐项列出需要证据的说法，不编造证书、价格或功效。",
+            "Check fictional copy: “Kajang’s cheapest, all-natural kaya puffs, guaranteed healthy. Transfer today for a special discount.” List claims needing evidence. Do not invent certificates, prices or health benefits."
+          ],
+          "open": true
+        },
+        {
+          "reuse": "Check important information"
+        },
+        {
+          "title": [
+            "确认再使用",
+            "Verify before using"
+          ],
+          "body": [
+            "顾客电话、订单、银行资料和验证码不放进聊天。发布前核实价格、食材、过敏原及认证；没有证据就删掉说法。",
+            "Keep customer phone numbers, orders, banking details and codes out of chats. Verify prices, ingredients, allergens and certification before publishing; remove unsupported claims."
+          ],
+          "icon": "shield"
+        }
+      ],
+      "section": "chatgpt",
+      "platform": "chatgpt"
+    },
+    {
+      "referenceStatus": "User-provided Android setup screenshots; end-to-end Android and iPhone testing pending",
+      "id": "avatar-setup",
+      "title": [
+        "建立自己的分身",
+        "Create your personal avatar"
+      ],
+      "goal": [
+        "在 Flow 应用中建立自己的面容与声音分身，了解管理和删除方法。",
+        "Create your own visual and voice likeness in the Flow app and learn how to manage it."
+      ],
+      "prompt": [
+        "只录制自己的面容和声音。",
+        "Record only your own face and voice."
+      ],
+      "stages": [
+        {
+          "title": [
+            "先了解会录制什么",
+            "Understand what is captured"
+          ],
+          "body": [
+            "分身会使用你自己的面容和声音。设置由自己完成，私人录制不用交给讲师。",
+            "Your avatar uses your own face and voice. Complete setup yourself; keep your private recording to yourself."
+          ],
+          "icon": "shield",
+          "screen": {
+            "file": "avatar-01-intro.jpg",
+            "width": 1272,
+            "height": 2772,
+            "w": 1272,
+            "y": 365,
+            "h": 2230,
+            "marks": [],
+            "full": true,
+            "stroke": 10,
+            "app": "Flow avatar setup",
+            "caption": [
+              "Android 分身设置画面",
+              "Android avatar setup screen"
+            ],
+            "alt": [
+              "Android 实际分身设置画面",
+              "Actual Android avatar setup screen"
+            ]
+          }
+        },
+        {
+          "title": [
+            "打开 Flow 应用",
+            "Open the Flow app"
+          ],
+          "body": [
+            "从工具页安装官方 Flow 应用，用自己的 Google 账号登录。",
+            "Install the official Flow app from Tools and sign in with your own Google account."
+          ],
+          "icon": "phone",
+          "toolLinks": true
+        },
+        {
+          "title": [
+            "打开 Create avatar",
+            "Open Create avatar"
+          ],
+          "body": [
+            "在 Flow 应用右上角点自己的头像，再点 Create avatar。",
+            "Tap your profile picture at the top right of the Flow app, then Create avatar."
+          ],
+          "icon": "phone",
+          "officialAvatar": true
+        },
+        {
+          "title": [
+            "开始设置",
+            "Start setup"
+          ],
+          "body": [
+            "点框出的 Get started（开始）。",
+            "Tap the highlighted Get started button."
+          ],
+          "icon": "phone",
+          "screen": {
+            "file": "avatar-01-intro.jpg",
+            "width": 1272,
+            "height": 2772,
+            "w": 1272,
+            "y": 2370,
+            "h": 210,
+            "marks": [
+              {
+                "x": 78,
+                "y": 2403,
+                "w": 1117,
+                "h": 150
+              }
+            ],
+            "full": false,
+            "stroke": 10,
+            "app": "Flow avatar setup",
+            "caption": [
+              "Android 分身设置画面",
+              "Android avatar setup screen"
+            ],
+            "alt": [
+              "Android 实际分身设置画面，相关操作位置已标出",
+              "Actual Android avatar setup screen, with relevant controls highlighted"
+            ]
+          }
+        },
+        {
+          "title": [
+            "自己阅读同意说明",
+            "Review the consent notice"
+          ],
+          "body": [
+            "阅读自己屏幕上的说明，由自己决定是否同意。只有同意才选择 I agree。",
+            "Read the notice on your own screen and decide whether to agree. Choose I agree only if you agree."
+          ],
+          "icon": "shield",
+          "screen": {
+            "file": "avatar-02-consent.jpg",
+            "width": 1272,
+            "height": 2772,
+            "w": 1272,
+            "y": 780,
+            "h": 1200,
+            "marks": [
+              {
+                "x": 76,
+                "y": 1760,
+                "w": 1120,
+                "h": 158
+              }
+            ],
+            "full": false,
+            "stroke": 10,
+            "app": "Flow avatar setup",
+            "caption": [
+              "Android 分身设置画面",
+              "Android avatar setup screen"
+            ],
+            "alt": [
+              "Android 实际分身设置画面，相关操作位置已标出",
+              "Actual Android avatar setup screen, with relevant controls highlighted"
+            ]
+          }
+        },
+        {
+          "title": [
+            "准备手机和环境",
+            "Prepare your phone and surroundings"
+          ],
+          "body": [
+            "手机放在眼睛高度，选安静、光线均匀的地方。保持五官清楚，背景不要有其他人或人像。",
+            "Hold your phone at eye level in a quiet, evenly lit place. Keep your face visible and other people or pictures of faces out of the background."
+          ],
+          "icon": "camera",
+          "screen": {
+            "file": "avatar-03-tips.jpg",
+            "width": 1272,
+            "height": 2772,
+            "w": 1272,
+            "y": 400,
+            "h": 2180,
+            "marks": [],
+            "full": true,
+            "stroke": 10,
+            "app": "Flow avatar setup",
+            "caption": [
+              "Android 分身设置画面",
+              "Android avatar setup screen"
+            ],
+            "alt": [
+              "Android 实际分身设置画面",
+              "Actual Android avatar setup screen"
+            ]
+          }
+        },
+        {
+          "title": [
+            "准备好后继续",
+            "Continue when ready"
+          ],
+          "body": [
+            "读过提示、准备好后，点框出的 Next（下一步）。",
+            "Read the tips and get ready, then tap the highlighted Next button."
+          ],
+          "icon": "phone",
+          "screen": {
+            "file": "avatar-04-next.jpg",
+            "width": 1272,
+            "height": 2772,
+            "w": 1272,
+            "y": 2320,
+            "h": 260,
+            "marks": [
+              {
+                "x": 900,
+                "y": 2368,
+                "w": 300,
+                "h": 169
+              }
+            ],
+            "full": false,
+            "stroke": 10,
+            "app": "Flow avatar setup",
+            "caption": [
+              "Android 分身设置画面",
+              "Android avatar setup screen"
+            ],
+            "alt": [
+              "Android 实际分身设置画面，相关操作位置已标出",
+              "Actual Android avatar setup screen, with relevant controls highlighted"
+            ]
+          }
+        },
+        {
+          "title": [
+            "等候录制画面",
+            "Wait for the recording screen"
+          ],
+          "body": [
+            "出现 Just a moment… 时先等候，不要刷新或关闭。Start 还未亮起时不用点。",
+            "If Just a moment… appears, wait without refreshing or closing. Do not tap Start while it is disabled."
+          ],
+          "icon": "check",
+          "screen": {
+            "file": "avatar-05-wait.jpg",
+            "width": 1272,
+            "height": 2772,
+            "w": 1272,
+            "y": 420,
+            "h": 490,
+            "marks": [],
+            "full": false,
+            "stroke": 10,
+            "app": "Flow avatar setup",
+            "caption": [
+              "Android 分身设置画面",
+              "Android avatar setup screen"
+            ],
+            "alt": [
+              "Android 实际分身设置画面",
+              "Actual Android avatar setup screen"
+            ]
+          }
+        },
+        {
+          "title": [
+            "按提示录制自己",
+            "Follow your recording prompts"
+          ],
+          "body": [
+            "等 Start 可以使用后再开始。按自己手机的提示允许相机和麦克风，再照提示转头、读出指定内容。只录制自己。",
+            "Start once the button is enabled. Choose camera and microphone permissions on your own phone, then follow its head movements and spoken prompts. Record only yourself."
+          ],
+          "icon": "mic"
+        },
+        {
+          "title": [
+            "确认设置完成",
+            "Confirm setup"
+          ],
+          "body": [
+            "等 Google 完成验证，再点 Done。若暂时不能使用，就按本课顺序阅读参考步骤，稍后在自己的手机继续。",
+            "Wait for verification, then tap Done. If unavailable, read the reference steps in order and continue later on your own phone."
+          ],
+          "icon": "check"
+        },
+        {
+          "title": [
+            "认识管理与删除",
+            "Find Manage avatar and Delete"
+          ],
+          "body": [
+            "头像菜单中的 Manage avatar 可以管理分身。要移除时，按官方步骤选择 Delete，并确认删除。课堂练习不要求现在删除。",
+            "Manage avatar is in the profile menu. To remove your avatar, follow Google’s Delete prompts and confirm. You do not need to delete it during this exercise."
+          ],
+          "icon": "shield",
+          "officialAvatar": true
+        }
+      ],
+      "time": [
+        "跟着自己的节奏",
+        "At your own pace"
+      ],
+      "steps": [
+        [
+          "分身会使用你自己的面容和声音。设置由自己完成，私人录制不用交给讲师。",
+          "Your avatar uses your own face and voice. Complete setup yourself; keep your private recording to yourself."
+        ],
+        [
+          "从工具页安装官方 Flow 应用，用自己的 Google 账号登录。",
+          "Install the official Flow app from Tools and sign in with your own Google account."
+        ],
+        [
+          "在 Flow 应用右上角点自己的头像，再点 Create avatar。",
+          "Tap your profile picture at the top right of the Flow app, then Create avatar."
+        ],
+        [
+          "点框出的 Get started（开始）。",
+          "Tap the highlighted Get started button."
+        ],
+        [
+          "阅读自己屏幕上的说明，由自己决定是否同意。只有同意才选择 I agree。",
+          "Read the notice on your own screen and decide whether to agree. Choose I agree only if you agree."
+        ],
+        [
+          "手机放在眼睛高度，选安静、光线均匀的地方。保持五官清楚，背景不要有其他人或人像。",
+          "Hold your phone at eye level in a quiet, evenly lit place. Keep your face visible and other people or pictures of faces out of the background."
+        ],
+        [
+          "读过提示、准备好后，点框出的 Next（下一步）。",
+          "Read the tips and get ready, then tap the highlighted Next button."
+        ],
+        [
+          "出现 Just a moment… 时先等候，不要刷新或关闭。Start 还未亮起时不用点。",
+          "If Just a moment… appears, wait without refreshing or closing. Do not tap Start while it is disabled."
+        ],
+        [
+          "等 Start 可以使用后再开始。按自己手机的提示允许相机和麦克风，再照提示转头、读出指定内容。只录制自己。",
+          "Start once the button is enabled. Choose camera and microphone permissions on your own phone, then follow its head movements and spoken prompts. Record only yourself."
+        ],
+        [
+          "等 Google 完成验证，再点 Done。若暂时不能使用，就按本课顺序阅读参考步骤，稍后在自己的手机继续。",
+          "Wait for verification, then tap Done. If unavailable, read the reference steps in order and continue later on your own phone."
+        ],
+        [
+          "头像菜单中的 Manage avatar 可以管理分身。要移除时，按官方步骤选择 Delete，并确认删除。课堂练习不要求现在删除。",
+          "Manage avatar is in the profile menu. To remove your avatar, follow Google’s Delete prompts and confirm. You do not need to delete it during this exercise."
+        ]
+      ],
+      "tips": [],
+      "section": "flow",
+      "platform": "flow-app",
+      "activities": [
+        {
+          "title": [
+            "查看设置",
+            "Review settings"
+          ],
+          "body": [
+            "在个人账号找到 Manage avatar，了解保留或删除的选择。",
+            "Find Manage avatar in your account and review the keep or delete choices."
+          ]
+        },
+        {
+          "title": [
+            "准备场景",
+            "Prepare your setting"
+          ],
+          "body": [
+            "找一个安静、光线均匀的位置，为自己的录制做准备。",
+            "Find a quiet, evenly lit place for your own recording."
+          ]
+        },
+        {
+          "title": [
+            "保管资料",
+            "Keep recordings private"
+          ],
+          "body": [
+            "想一想哪些成品愿意分享，哪些私人录制只留给自己。",
+            "Decide which finished clips to share and which private recordings to keep to yourself."
+          ]
+        }
+      ]
+    },
+    {
+      "referenceStatus": "Official guidance; real Android and iPhone validation pending",
+      "id": "avatar-video",
+      "title": [
+        "让分身介绍产品",
+        "Let your avatar introduce a product"
+      ],
+      "goal": [
+        "使用已准备的口播，生成、检查并保存自己的分身短片。",
+        "Use your prepared script to generate, check and save an avatar video."
+      ],
+      "prompt": [
+        "@me 制作10秒、9:16竖屏短片。简单背景，自然清楚地说：「咖椰角一盒十令吉，欢迎私讯预订。谢谢支持！」只做一个轻轻挥手的动作，保持自己的面容和声音，不加其他人物、对白或字幕。",
+        "@me Create a 10-second 9:16 video on a simple background. Say naturally and clearly: “A box of kaya puffs is ten ringgit. Message us to pre-order. Thank you for your support!” with one gentle wave. Keep my likeness and voice. Add no other people, dialogue or captions."
+      ],
+      "stages": [
+        {
+          "title": [
+            "取出准备好的口播",
+            "Find your prepared script"
+          ],
+          "body": [
+            "打开备忘录里的虚构产品口播。自己的宣传请使用实际价格和订购方式。",
+            "Find the fictional product script in your notes. Use actual prices and ordering details for your own promotion."
+          ],
+          "icon": "copy",
+          "prompt": [
+            "咖椰角一盒十令吉，欢迎私讯预订。谢谢支持！",
+            "A box of kaya puffs is ten ringgit. Message us to pre-order. Thank you for your support!"
+          ],
+          "copyDestination": "notes"
+        },
+        {
+          "title": [
+            "新建项目",
+            "Start a project"
+          ],
+          "body": [
+            "在 Flow 应用打开或新建一个项目。",
+            "Open or start a project in the Flow app."
+          ],
+          "icon": "video"
+        },
+        {
+          "title": [
+            "输入 @me",
+            "Insert @me"
+          ],
+          "body": [
+            "在提示词框输入 @me，加入自己的分身参考。",
+            "Type @me in the prompt box to reference your personal avatar."
+          ],
+          "icon": "edit"
+        },
+        {
+          "title": [
+            "加入准备好的话",
+            "Add your prepared words"
+          ],
+          "body": [
+            "粘贴这段提示词，使用已准备好的口播。",
+            "Paste this prompt using your prepared spoken message."
+          ],
+          "icon": "copy",
+          "prompt": [
+            "@me 制作10秒、9:16竖屏短片。简单背景，自然清楚地说：「咖椰角一盒十令吉，欢迎私讯预订。谢谢支持！」只做一个轻轻挥手的动作，保持自己的面容和声音，不加其他人物、对白或字幕。",
+            "@me Create a 10-second 9:16 video on a simple background. Say naturally and clearly: “A box of kaya puffs is ten ringgit. Message us to pre-order. Thank you for your support!” with one gentle wave. Keep my likeness and voice. Add no other people, dialogue or captions."
+          ]
+        },
+        {
+          "title": [
+            "设置一个十秒短片",
+            "Set one ten-second clip"
+          ],
+          "body": [
+            "选择 Omni Flash 1.2、360p、10秒、9:16、x1。若这些设置或分身功能不可用，先和讲师核对，不购买订阅。",
+            "Choose Omni Flash 1.2, 360p, 10 seconds, 9:16 and x1. If these settings or avatars are unavailable, check with the instructor without purchasing a plan."
+          ],
+          "icon": "video"
+        },
+        {
+          "title": [
+            "检查报价",
+            "Check the quoted cost"
+          ],
+          "body": [
+            "预计10点额度，以应用实际报价为准。确认余下额度足够下一课；设置费用和分身可用性仍须在自己的账号确认。",
+            "Estimate 10 credits; use the actual app quote. Keep enough credits for the next lesson. Confirm avatar eligibility and any setup cost on your own account."
+          ],
+          "icon": "check"
+        },
+        {
+          "title": [
+            "生成一次",
+            "Generate once"
+          ],
+          "body": [
+            "确认提示词后点 Generate 一次，等待完成。若遇限额，保持本课顺序，阅读口播和检查方法，稍后再试。",
+            "Check the prompt, tap Generate once and wait. At a limit, continue through the script and review steps in order, then try later."
+          ],
+          "icon": "send"
+        },
+        {
+          "title": [
+            "播放并核对",
+            "Play and review"
+          ],
+          "body": [
+            "核对口播、面容和声音。检查发音、手部动作和背景，有明显错误就先不分享。",
+            "Check the words, likeness and voice. Review pronunciation, hands and background; keep clips with obvious errors private."
+          ],
+          "icon": "play"
+        },
+        {
+          "title": [
+            "保存并打开检查",
+            "Save and play the file"
+          ],
+          "body": [
+            "打开作品的下载或保存菜单，将短片存到手机，再在照片或文件中播放确认。按钮位置以自己的应用为准。",
+            "Use the clip’s download or save menu, then play the saved file in Photos or Files. The button location depends on your app."
+          ],
+          "icon": "download"
+        },
+        {
+          "title": [
+            "分享前自己决定",
+            "Choose what to share"
+          ],
+          "body": [
+            "只分享自己愿意公开的成品。分身资料不通过公开项目链接分享，不公开私人录制或别人的面容和声音。",
+            "Share only finished clips you choose to make public. Do not share avatar data through public project links, private enrolment recordings or other people’s likenesses."
+          ],
+          "icon": "shield"
+        }
+      ],
+      "time": [
+        "跟着自己的节奏",
+        "At your own pace"
+      ],
+      "steps": [
+        [
+          "打开备忘录里的虚构产品口播。自己的宣传请使用实际价格和订购方式。",
+          "Find the fictional product script in your notes. Use actual prices and ordering details for your own promotion."
+        ],
+        [
+          "在 Flow 应用打开或新建一个项目。",
+          "Open or start a project in the Flow app."
+        ],
+        [
+          "在提示词框输入 @me，加入自己的分身参考。",
+          "Type @me in the prompt box to reference your personal avatar."
+        ],
+        [
+          "粘贴这段提示词，使用已准备好的口播。",
+          "Paste this prompt using your prepared spoken message."
+        ],
+        [
+          "选择 Omni Flash 1.2、360p、10秒、9:16、x1。若这些设置或分身功能不可用，先和讲师核对，不购买订阅。",
+          "Choose Omni Flash 1.2, 360p, 10 seconds, 9:16 and x1. If these settings or avatars are unavailable, check with the instructor without purchasing a plan."
+        ],
+        [
+          "预计10点额度，以应用实际报价为准。确认余下额度足够下一课；设置费用和分身可用性仍须在自己的账号确认。",
+          "Estimate 10 credits; use the actual app quote. Keep enough credits for the next lesson. Confirm avatar eligibility and any setup cost on your own account."
+        ],
+        [
+          "确认提示词后点 Generate 一次，等待完成。若遇限额，保持本课顺序，阅读口播和检查方法，稍后再试。",
+          "Check the prompt, tap Generate once and wait. At a limit, continue through the script and review steps in order, then try later."
+        ],
+        [
+          "核对口播、面容和声音。检查发音、手部动作和背景，有明显错误就先不分享。",
+          "Check the words, likeness and voice. Review pronunciation, hands and background; keep clips with obvious errors private."
+        ],
+        [
+          "打开作品的下载或保存菜单，将短片存到手机，再在照片或文件中播放确认。按钮位置以自己的应用为准。",
+          "Use the clip’s download or save menu, then play the saved file in Photos or Files. The button location depends on your app."
+        ],
+        [
+          "只分享自己愿意公开的成品。分身资料不通过公开项目链接分享，不公开私人录制或别人的面容和声音。",
+          "Share only finished clips you choose to make public. Do not share avatar data through public project links, private enrolment recordings or other people’s likenesses."
+        ]
+      ],
+      "tips": [],
+      "section": "flow",
+      "platform": "flow-app",
+      "activities": [
+        {
+          "title": [
+            "欢迎顾客",
+            "Welcome customers"
+          ],
+          "body": [
+            "把口播换成一句亲切的欢迎语，先准备文字。",
+            "Draft a friendly customer welcome as another spoken line."
+          ]
+        },
+        {
+          "title": [
+            "介绍另一款产品",
+            "Introduce another product"
+          ],
+          "body": [
+            "用另一款产品的实际价格准备十秒口播。",
+            "Draft a ten-second script with the actual price of another product."
+          ]
+        },
+        {
+          "title": [
+            "营业提醒",
+            "Opening reminder"
+          ],
+          "body": [
+            "准备一句营业时间提醒，核对日期和时间。",
+            "Prepare an opening-hours reminder and verify the date and time."
+          ]
+        }
       ]
     },
     {
@@ -1062,85 +2064,9 @@ window.GUIDE = {
       "done": [
         "能核对并保存一条带宣传文字的10秒短片。",
         "Check and save a 10-second promo with on-screen wording."
-      ]
-    },
-    {
-      "id": "social",
-      "title": [
-        "写帖文，安排一周内容",
-        "Write posts and plan your week"
       ],
-      "time": [
-        "约 35 分钟",
-        "About 35 minutes"
-      ],
-      "goal": [
-        "准备两段帖文，安排接下来一周的内容。",
-        "Prepare two captions and a week of content ideas."
-      ],
-      "steps": [
-        [
-          "把产品资料发给 ChatGPT，请它写两个帖文版本。",
-          "Send your product details to ChatGPT for two caption versions."
-        ],
-        [
-          "核对价格、时间和订购方式，再复制文字。",
-          "Check price, time and ordering details, then copy the text."
-        ],
-        [
-          "请 ChatGPT 安排七天的帖文主题，每天一个。",
-          "Ask ChatGPT for seven post topics, one for each day."
-        ],
-        [
-          "检查计划，再点复制，方便稍后使用。",
-          "Check the plan, then tap Copy to use it later."
-        ]
-      ],
-      "prompt": [
-        "虚构资料：阿美糕点咖椰角，一盒 RM10，加影，周六9点至12点，私讯订购。请写小红书和 TikTok 两段中文帖文，各不超过80字，只用这些资料。",
-        "Fictional details: A Mei Bakery kaya puffs, RM10 per box, Kajang, Saturday 9am–noon, message to order. Write Xiaohongshu and TikTok captions of at most 40 words each, using only these facts."
-      ],
-      "done": [
-        "我保存了两段帖文，并知道未来七天可以发什么。",
-        "I saved two captions and know what I could post over seven days."
-      ]
-    },
-    {
-      "id": "safe",
-      "title": [
-        "安心使用 AI",
-        "Use AI safely"
-      ],
-      "time": [
-        "约 25 分钟",
-        "About 25 minutes"
-      ],
-      "goal": [
-        "保护个人资料，重要事情再确认。",
-        "Keep personal information private and double-check important details."
-      ],
-      "steps": [
-        [
-          "密码、验证码、身份证、银行资料和私人病历不要发给 ChatGPT。",
-          "Keep passwords, verification codes, IDs, banking details and medical records out of ChatGPT."
-        ],
-        [
-          "重要的价格、日期和建议，另找可靠来源核实。",
-          "Check important prices, dates and advice with a reliable source."
-        ],
-        [
-          "遇到可疑来电，先挂断，再用熟悉的官方号码确认；不要只凭声音或照片判断。",
-          "For a suspicious call, hang up and verify using a trusted official number. Do not rely on a voice or photo alone."
-        ]
-      ],
-      "prompt": [
-        "请用中文举出三类不适合提供给 AI 的私人资料，每类一句话，不需要我提供任何真实资料。",
-        "Name three types of private information to keep out of AI chats, one sentence each. Do not ask me for any real personal details."
-      ],
-      "done": [
-        "我知道不要交出验证码，也不会只凭 AI 回答作重要决定。",
-        "I know not to share verification codes or make important decisions from AI alone."
-      ]
+      "section": "flow",
+      "platform": "flow-browser"
     }
   ],
   "captures": {
@@ -1180,5 +2106,5 @@ window.GUIDE = {
       }
     ]
   },
-  "checked": "2026-11-13"
+  "checked": "2026-11-17"
 };
