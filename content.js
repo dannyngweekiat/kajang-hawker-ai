@@ -2066,39 +2066,149 @@ window.GUIDE = {
         "Check and save a 10-second promo with on-screen wording."
       ],
       "finalActivity": {
-        "task": [
-          "宣传你正在卖的产品",
-          "Promote a product you sell"
-        ],
         "title": [
-          "课后实作：宣传你正在卖的产品",
-          "Final activity: Promote a product you sell"
+          "用一个产品做一场小推广",
+          "One Product, One Mini Campaign"
+        ],
+        "duration": [
+          "25–30 分钟",
+          "25–30 minutes"
         ],
         "goal": [
-          "用自己正在卖的一件产品，做一则可以发到 WhatsApp 或社交媒体的宣传帖草稿。",
-          "Create one ready-to-share WhatsApp or social media draft for a product you already sell."
+          "选一件你正在卖的产品、一类可能购买的顾客和一个宣传渠道。做一则首发帖，写一则跟进文案，并选好各自的发布日。",
+          "Pick one product you already sell, one likely customer, and one channel. Make a launch post, write a follow-up caption, and choose a day for each."
         ],
         "steps": [
-          [
-            "选一件你正在卖的产品。记下产品名称、实际售价和单位、一个真实卖点，以及顾客怎样下单。",
-            "Choose one product you already sell. Write down its name, actual price and unit, one real selling point, and how customers can order."
-          ],
-          [
-            "把下面的提示词填好，再发给 ChatGPT，写一段简短的宣传文案。",
-            "Fill in the prompt below and send it to ChatGPT to draft a short caption."
-          ],
-          [
-            "配上自己的产品照片，或使用第九课做好的短片。若短片里的产品或文字不准确，就用真实照片。",
-            "Pair the caption with your own product photo or the clip you made in Lesson 9. Use the real photo if the video misrepresents the product or shows incorrect text."
-          ],
-          [
-            "请同伴看看，问他们能否一眼看懂卖什么、多少钱、怎样下单。修改后，把照片或短片和文案一起存成草稿。",
-            "Show the draft to a partner. Can they tell what you sell, what it costs, and how to order? Fix anything unclear, then save the caption and photo or video together as a draft."
-          ]
+          {
+            "title": [
+              "确认产品资料",
+              "Confirm your product details"
+            ],
+            "time": [
+              "5 分钟",
+              "5 min"
+            ],
+            "lessons": [
+              "复习第 1–2 课",
+              "Review Lessons 1–2"
+            ],
+            "body": [
+              "用语音或打字告诉 ChatGPT 你卖什么、谁可能购买，以及你想在哪个渠道宣传，例如 WhatsApp、Facebook 或 Instagram。核对产品名、实际售价和计价单位、一个真实卖点，以及顾客怎样下单。",
+              "Use voice or typing to tell ChatGPT what you sell, who might buy it, and where you want to reach them, such as WhatsApp, Facebook, or Instagram. Confirm the product name, actual price and unit, one real selling point, and how customers can order."
+            ]
+          },
+          {
+            "title": [
+              "写两则文案，选两个日子",
+              "Write two captions and pick two days"
+            ],
+            "time": [
+              "6 分钟",
+              "6 min"
+            ],
+            "lessons": [
+              "复习第 3–4 课",
+              "Review Lessons 3–4"
+            ],
+            "body": [
+              "填好下方的 ChatGPT 提示词。让首发帖介绍产品，让跟进帖提醒顾客下单。两则都保留真实售价和订购方式。为每则选一个适合自己营业时间的日子。",
+              "Fill in the ChatGPT prompt below. Use the launch caption to introduce the product and the follow-up to remind customers how to order. Keep the real price and ordering details in both. Pick two days that fit your business schedule."
+            ]
+          },
+          {
+            "title": [
+              "用上之前做好的图片或短片",
+              "Reuse your poster and video"
+            ],
+            "time": [
+              "8 分钟",
+              "8 min"
+            ],
+            "lessons": [
+              "复习第 5 课和第 7–9 课",
+              "Review Lessons 5 and 7–9"
+            ],
+            "body": [
+              "首发帖配第 5 课的海报。跟进帖配第 9 课的 10 秒产品短片，或用第 7–8 课做好的自己的分身口播。哪一则没有合适的素材，或画面和文字有误，就换上自己拍的真实产品照。两则都可以用照片完成，无需重新生成。",
+              "Pair the launch caption with your Lesson 5 poster. For the follow-up, use your 10-second product clip from Lesson 9 or your own saved avatar intro from Lessons 7–8. For either post, use a real product photo if the media is unavailable or inaccurate. You can finish both drafts with the same photo and reuse work you already have."
+            ]
+          },
+          {
+            "title": [
+              "做五秒顾客测试",
+              "Run the five-second customer test"
+            ],
+            "time": [
+              "6–11 分钟",
+              "6–11 min"
+            ],
+            "lessons": [
+              "复习第 6 课",
+              "Review Lesson 6"
+            ],
+            "body": [
+              "逐一给同伴看两则草稿。每则只看五秒，然后移开画面，请同伴凭记忆说出卖什么、多少钱、怎样下单。根据反馈改一处，用下方清单做最后检查。把两则文案、各自的图片或短片和计划日期存成草稿。",
+              "Show each draft to a partner for five seconds, then hide it. Ask them to recall what you sell, what it costs, and how to order. Fix one thing based on their feedback and use the checklist below. Save both captions with their media and planned dates as drafts."
+            ]
+          }
         ],
         "prompt": [
-          "请为［产品名］写一段适合［WhatsApp／Facebook／Instagram］的宣传文案，最多三句。售价是［价格和单位］，真实卖点是［卖点］，订购方式是［订购方法］。只用我提供的资料，最后邀请顾客下单。",
-          "Write a promotional caption of up to three sentences for [product name] on [WhatsApp / Facebook / Instagram]. The price is [price and unit], one real selling point is [selling point], and customers can order by [order method]. Use only these details and end with an invitation to order."
+          "我卖［产品名］，想通过［渠道］吸引［目标顾客］。实际售价是［价格和单位］，一个真实卖点是［卖点］，顾客可以［订购方式］下单。我适合发布的日子有［可选日期］。请用［语言］写两则文案，每则最多三句。第一则介绍产品，第二则换个说法提醒顾客下单。两则都要写明实际售价和订购方式，并各建议一个不同的发布日期。只用我提供的资料。",
+          "I sell [product name] and want to reach [likely customer] on [channel]. The actual price is [price and unit], one real selling point is [selling point], and customers can order by [order method]. The days I can post are [available days]. Write two captions in [language], up to three sentences each. Introduce the product in the first and use a different angle to remind customers to order in the second. Include the real price and ordering method in both. Suggest a different posting day for each, using only the details I provided."
+        ],
+        "example": {
+          "setup": [
+            "在 WhatsApp 向想买周末点心的顾客推荐椰香咖椰角，每盒 RM10。",
+            "Sell coconut kaya puffs at RM10 per box to weekend snack shoppers on WhatsApp."
+          ],
+          "posts": [
+            {
+              "title": [
+                "周五 · 首发帖",
+                "Friday · Launch post"
+              ],
+              "caption": [
+                "周末点心试试椰香咖椰角，每盒 RM10。回复这条消息订购。",
+                "Try coconut kaya puffs for a weekend snack. RM10 per box. Reply to this message to order."
+              ],
+              "media": [
+                "配咖椰角海报或真实产品照。",
+                "Pair with a kaya puff poster or a real product photo."
+              ]
+            },
+            {
+              "title": [
+                "周日 · 跟进帖",
+                "Sunday · Follow-up post"
+              ],
+              "caption": [
+                "下午茶想来点椰香点心？咖椰角每盒 RM10。回复这条消息订购。",
+                "Looking for a coconut treat for afternoon tea? Kaya puffs are RM10 per box. Reply to this message to order."
+              ],
+              "media": [
+                "配产品短片或真实产品照。",
+                "Pair with a product clip or a real product photo."
+              ]
+            }
+          ]
+        },
+        "checklist": [
+          [
+            "两则草稿的价格和计价单位都正确。",
+            "The price and unit are accurate in both drafts."
+          ],
+          [
+            "顾客一看就知道怎样下单。",
+            "Customers can tell how to order at a glance."
+          ],
+          [
+            "图片或短片真实反映产品；画面文字正确，卖点有依据。",
+            "The visuals accurately represent the product, on-screen text is correct, and any claims are supported."
+          ],
+          [
+            "提示词和草稿里没有顾客电话、私人订单资料或验证码。",
+            "Prompts and drafts contain no customer phone numbers, private order details, or verification codes."
+          ]
         ]
       },
       "section": "flow",

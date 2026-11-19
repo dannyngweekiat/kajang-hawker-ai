@@ -20,10 +20,10 @@
   function imagePlan(){return '<details class="image-plan"><summary>'+icon('image')+'<span>'+tx(['图片参考','Picture examples'])+'</span></summary><p>'+tx(data.plan.main)+'</p><a class="button" href="#lesson/'+esc(data.plan.mainId)+'">'+icon('book','small')+tx(['查看练习和参考图','Open the activity and example'])+'</a></details>';}
   function finalActivityTopic(){
     return `<section class="lesson-group" aria-labelledby="final-activity-category">
-      <h3 id="final-activity-category">${tx(['第 10 个主题 – 课后实作','Topic 10 – Final Activity'])}</h3>
+      <h3 id="final-activity-category">${tx(['课后实作','Final Activity'])}</h3>
       <ul class="lesson-list"><li><a href="#final-activity">
         <span class="lesson-visual">${icon('edit')}</span>
-        <span class="lesson-copy"><strong>${tx(finalActivity.task)}</strong><span>${tx(finalActivity.goal)}</span></span>
+        <span class="lesson-copy"><strong>${tx(finalActivity.title)}</strong><span>${tx(finalActivity.goal)}</span></span>
         ${icon('arrow','lesson-arrow')}
       </a></li></ul>
     </section>`;
@@ -33,14 +33,38 @@
   const back=()=>`<a class="back" href="#contents">${icon('back','small')}${tx(['学习内容','Contents'])}</a>`;
   function tools(){return `<main id="main" class="tools-main" tabindex="-1"><div class="page-heading">${icon('tools','heading-icon')}<h1>${tx(['打开课堂工具','Open the course tools'])}</h1></div><p class="lead">${tx(['ChatGPT 用来提问、写文字和做图片；Google Flow 用来生成视频。分身课用 Flow 应用，照片短片课用手机网页。','Use ChatGPT for questions, writing and pictures, and Google Flow for video generation. Use the Flow app for avatars and the mobile website for picture-based videos.'])}</p><div class="tool-tiles">${toolTile('https://chatgpt.com/','ChatGPT','chatgpt',['提问、文案和图片','Questions, writing and pictures'],['打开 ChatGPT','Open ChatGPT'])}${toolTile('https://flow.google.com/','Google Flow','flow',['把照片变成短片 · 手机网页','Turn pictures into videos · mobile website'],['打开 Flow 网页','Open Flow website'])}${toolTile('https://play.google.com/store/apps/details?id=com.google.android.apps.labs.whisk','Google Flow · Android','flow',['建立和使用自己的分身 · Android 应用','Create and use your personal avatar · Android app'],['前往 Google Play','Open Google Play'])}${toolTile('https://apps.apple.com/app/6751294549','Google Flow · iPhone','flow',['建立和使用自己的分身 · iPhone 应用','Create and use your personal avatar · iPhone app'],['前往 App Store','Open the App Store'])}</div><div class="tool-notes"><p class="tool-account">${icon('lock','small')}${tx(['使用自己的账号；课堂不需要购买订阅','Use your own accounts; no subscription is needed for class'])}</p><details><summary>${tx(['免费额度怎样安排？','How do we plan free usage?'])}</summary><p>${tx(data.plan.budget)}</p><p>${tx(['Flow 免费账号目前每天有50点额度，不累积。费用按模型和作品数量计算；以生成前显示的花费为准。','Flow currently provides 50 daily credits without a subscription; unused credits do not carry over. Costs depend on the model and output count. Check the cost shown before generating.'])}</p><p>${tx(['本课安排两个视频，每次选择 x1。额度不足或暂时无法生成时，按顺序看操作图、准备自己的图片和提问，稍后再试。无需购买额度。','Plan two videos and choose x1 each time. If credits or generation are unavailable, follow the screenshots in order and prepare your picture and prompt for later. No credit purchase is needed.'])}</p><p>${tx(data.plan.atLimit)}</p></details><p><a href="https://support.google.com/flow/answer/16353333?hl=en">${tx(['Google Flow 官方说明','Official Google Flow guidance'])}</a> · <a href="https://support.google.com/flow/answer/16526234?hl=en">${tx(['Flow 额度说明','Flow credits'])}</a> · <a href="https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq">${tx(['ChatGPT 免费版说明','ChatGPT Free guidance'])}</a></p></div>${imagePlan()}<section class="return-tip">${icon('repeat')}<div><h2>${tx(['怎样回到指南？','How do I return to the guide?'])}</h2><p>${tx(['工具会在新标签页打开。点浏览器的标签页按钮，选回本指南。','Tools open in a new browser tab. Tap your browser’s tabs button and choose this guide.'])}</p></div></section><p class="meta">${tx(['资料查核：2026 年 11 月 17 日。使用前以官方说明和账号提示为准。','Checked 17 November 2026. Follow current official guidance and your account notices.'])}</p>${link('#contents',['返回学习内容','Back to contents'],false,'book')}</main>`;}
   function activity(){
+    const {title,duration,goal,steps,prompt,example,checklist}=finalActivity;
     return `<main id="main" class="reading final-activity" tabindex="-1">
       ${back()}
-      <div class="page-heading">${icon('edit','heading-icon')}<h1>${tx(finalActivity.title)}</h1></div>
-      <p class="lead">${tx(finalActivity.goal)}</p>
-      <ol>${finalActivity.steps.map(step=>`<li>${tx(step)}</li>`).join('')}</ol>
-      <h2>${tx(['ChatGPT 提示词','ChatGPT prompt'])}</h2>
-      <blockquote class="stage-prompt">${tx(finalActivity.prompt)}</blockquote>
-      <div class="actions">${openTool('https://chatgpt.com/',['打开 ChatGPT','Open ChatGPT'],'chat')}</div>
+      <div class="page-heading">${icon('edit','heading-icon')}<h1>${tx(title)}</h1></div>
+      <p class="activity-meta">${tx(duration)}</p>
+      <p class="lead">${tx(goal)}</p>
+      <section aria-labelledby="campaign-steps">
+        <h2 id="campaign-steps">${tx(['推广步骤','Campaign steps'])}</h2>
+        <ol class="activity-steps">${steps.map(step=>`<li>
+          <h3>${tx(step.title)}</h3>
+          <p class="activity-meta">${tx(step.time)} · ${tx(step.lessons)}</p>
+          <p>${tx(step.body)}</p>
+        </li>`).join('')}</ol>
+      </section>
+      <section aria-labelledby="campaign-prompt">
+        <h2 id="campaign-prompt">${tx(['ChatGPT 提示词','ChatGPT prompt'])}</h2>
+        <blockquote class="stage-prompt">${tx(prompt)}</blockquote>
+        <div class="actions">${openTool('https://chatgpt.com/',['打开 ChatGPT','Open ChatGPT'],'chat')}</div>
+      </section>
+      <section aria-labelledby="campaign-example">
+        <h2 id="campaign-example">${tx(['虚构示例','Fictional example'])}</h2>
+        <p>${tx(example.setup)}</p>
+        <div class="activity-posts">${example.posts.map(post=>`<article>
+          <h3>${tx(post.title)}</h3>
+          <blockquote>${tx(post.caption)}</blockquote>
+          <p class="activity-meta">${tx(post.media)}</p>
+        </article>`).join('')}</div>
+      </section>
+      <section aria-labelledby="campaign-checklist">
+        <h2 id="campaign-checklist">${tx(['保存前检查','Before saving your drafts'])}</h2>
+        <ul class="activity-checklist">${checklist.map(check=>`<li>${tx(check)}</li>`).join('')}</ul>
+      </section>
     </main>`;
   }
   function lesson(id){return mobileLesson.render(id);}
