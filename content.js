@@ -2066,6 +2066,10 @@ window.GUIDE = {
         "Check and save a 10-second promo with on-screen wording."
       ],
       "finalActivity": {
+        "task": [
+          "宣传你正在卖的产品",
+          "Promote a product you sell"
+        ],
         "title": [
           "课后实作：宣传你正在卖的产品",
           "Final activity: Promote a product you sell"
