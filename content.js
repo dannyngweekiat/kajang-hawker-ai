@@ -2,8 +2,8 @@ window.GUIDE = {
   "slug": "hawkers",
   "audience": "hawkers",
   "title": [
-    "小贩手机 AI 营销实作班",
-    "AI marketing for hawkers"
+    "小商家手机 AI 营销实作班",
+    "Small Business AI Marketing"
   ],
   "intro": [
     "先用 ChatGPT 写文案、做海报，再用 Flow 应用建立分身和制作口播，最后在手机网页制作产品短片。",
@@ -2065,6 +2065,38 @@ window.GUIDE = {
         "能核对并保存一条带宣传文字的10秒短片。",
         "Check and save a 10-second promo with on-screen wording."
       ],
+      "finalActivity": {
+        "title": [
+          "课后实作：宣传你正在卖的产品",
+          "Final activity: Promote a product you sell"
+        ],
+        "goal": [
+          "用自己正在卖的一件产品，做一则可以发到 WhatsApp 或社交媒体的宣传帖草稿。",
+          "Create one ready-to-share WhatsApp or social media draft for a product you already sell."
+        ],
+        "steps": [
+          [
+            "选一件你正在卖的产品。记下产品名称、实际售价和单位、一个真实卖点，以及顾客怎样下单。",
+            "Choose one product you already sell. Write down its name, actual price and unit, one real selling point, and how customers can order."
+          ],
+          [
+            "把下面的提示词填好，再发给 ChatGPT，写一段简短的宣传文案。",
+            "Fill in the prompt below and send it to ChatGPT to draft a short caption."
+          ],
+          [
+            "配上自己的产品照片，或使用第九课做好的短片。若短片里的产品或文字不准确，就用真实照片。",
+            "Pair the caption with your own product photo or the clip you made in Lesson 9. Use the real photo if the video misrepresents the product or shows incorrect text."
+          ],
+          [
+            "请同伴看看，问他们能否一眼看懂卖什么、多少钱、怎样下单。修改后，把照片或短片和文案一起存成草稿。",
+            "Show the draft to a partner. Can they tell what you sell, what it costs, and how to order? Fix anything unclear, then save the caption and photo or video together as a draft."
+          ]
+        ],
+        "prompt": [
+          "请为［产品名］写一段适合［WhatsApp／Facebook／Instagram］的宣传文案，最多三句。售价是［价格和单位］，真实卖点是［卖点］，订购方式是［订购方法］。只用我提供的资料，最后邀请顾客下单。",
+          "Write a promotional caption of up to three sentences for [product name] on [WhatsApp / Facebook / Instagram]. The price is [price and unit], one real selling point is [selling point], and customers can order by [order method]. Use only these details and end with an invitation to order."
+        ]
+      },
       "section": "flow",
       "platform": "flow-browser"
     }

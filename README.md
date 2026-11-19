@@ -1,4 +1,4 @@
-# AI marketing for hawkers
+# Small Business AI Marketing
 
 Phone-first Chinese and English course guide.
 

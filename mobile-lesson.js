@@ -756,8 +756,30 @@ window.createMobileLesson = ({data, tx, t, esc, icon, announce, actionNames, ste
   function endingActivities(){const labels=item.activities?item.activities.map(a=>a.title):relatedTitles[item.id],headings=Array.isArray(labels)?labels:labels[data.audience];const extra=additionalActivities[item.id],rows=Array.isArray(extra)?extra:extra[data.audience];return activityIdeas().map((body,i)=>({title:headings[i],body})).concat(rows.map(([zh,en,bzh,ben])=>({title:[zh,en],body:[bzh,ben]})));}
   const atEnd=()=>active===frames.length;
   const positionLabel=()=>atEnd()?tx(['本课结束','End of lesson']):tx(['步骤 ','Step '])+(active+1)+' / '+frames.length;
-  const forwardState=()=>atEnd()?{label:['本课结束','Lesson end'],icon:'book',cls:'',disabled:true}:active===frames.length-1?{label:['看看还能做什么','More things to try'],icon:'book',cls:'review-lesson',disabled:false}:{label:['下一步','Next'],icon:'arrow',cls:'primary',disabled:false};
-  function boundaryHTML(){const next=data.lessons[data.lessons.indexOf(item)+1];return '<div class="lesson-boundary"><h2 id="frame-heading" tabindex="-1">'+tx(['还可以这样试试','More things to try'])+'</h2><ul class="similar-activities">'+endingActivities().concat(data.audience==='hawkers'?(hawkerSupplementaryActivities[item.id]||[]).map(([zh,en,bzh,ben])=>({title:[zh,en],body:[bzh,ben]})):[]).map(a=>'<li><h3>'+tx(a.title)+'</h3><p>'+tx(a.body)+'</p></li>').join('')+'</ul>'+(next?'<a class="button start-next-lesson" href="#lesson/'+esc(next.id)+'"><span>'+tx(['开始下一课','Start next lesson'])+'<strong>'+tx(next.title)+'</strong></span>'+icon('arrow')+'</a>':'')+'<a class="button boundary-contents" href="#contents">'+tx(['返回学习内容','Back to contents'])+'</a></div>';}
+  const forwardState=()=>atEnd()?{label:['本课结束','Lesson end'],icon:'book',cls:'',disabled:true}:active===frames.length-1?{label:item.finalActivity?['开始课后实作','Start final activity']:['看看还能做什么','More things to try'],icon:'book',cls:'review-lesson',disabled:false}:{label:['下一步','Next'],icon:'arrow',cls:'primary',disabled:false};
+  function finalActivityHTML(activity){
+    return `<section class="final-activity" aria-labelledby="frame-heading">
+      <h2 id="frame-heading" tabindex="-1">${tx(activity.title)}</h2>
+      <p>${tx(activity.goal)}</p>
+      <ol>${activity.steps.map(step=>`<li>${tx(step)}</li>`).join('')}</ol>
+      <h3>${tx(['ChatGPT 提示词','ChatGPT prompt'])}</h3>
+      <blockquote class="stage-prompt">${tx(activity.prompt)}</blockquote>
+      <a class="button" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">${tx(['打开 ChatGPT','Open ChatGPT'])}</a>
+    </section>`;
+  }
+  function boundaryHTML(){
+    const next=data.lessons[data.lessons.indexOf(item)+1];
+    const finalActivity=item.finalActivity;
+    const extra=data.audience==='hawkers'?(hawkerSupplementaryActivities[item.id]||[]):[];
+    const activities=endingActivities().concat(extra.map(([zh,en,bzh,ben])=>({title:[zh,en],body:[bzh,ben]})));
+    const headingAttributes=finalActivity?'':' id="frame-heading" tabindex="-1"';
+    return '<div class="lesson-boundary">'+
+      (finalActivity?finalActivityHTML(finalActivity):'')+
+      `<h2${headingAttributes}>${tx(['还可以这样试试','More things to try'])}</h2>`+
+      `<ul class="similar-activities">${activities.map(a=>`<li><h3>${tx(a.title)}</h3><p>${tx(a.body)}</p></li>`).join('')}</ul>`+
+      (next?`<a class="button start-next-lesson" href="#lesson/${esc(next.id)}"><span>${tx(['开始下一课','Start next lesson'])}<strong>${tx(next.title)}</strong></span>${icon('arrow')}</a>`:'')+
+      `<a class="button boundary-contents" href="#contents">${tx(['返回学习内容','Back to contents'])}</a></div>`;
+  }
   const stageHTML=()=>atEnd()?boundaryHTML():frameHTML(frames[active]);
   function render(id){item=data.lessons.find(l=>l.id===id);if(!item)return `<main id="main"><h1>${tx(['没有找到这页内容','This page could not be found'])}</h1><a href="#contents">${tx(['学习内容','Contents'])}</a></main>`;frames=framesFor(item);active=0;
     return `<main id="main" class="mobile-workbook" tabindex="-1"><header class="mobile-lesson-heading"><h1>${tx(item.title)}</h1><div class="mobile-progress"><span id="mobile-count">${positionLabel()}</span><button type="button" id="lesson-overview">${icon('list','small')}${tx(['全部步骤','All steps'])}</button></div></header><section id="lesson-stage" class="lesson-stage" aria-labelledby="frame-heading">${stageHTML()}</section><div class="mobile-controls"><button id="mobile-back" ${active===0?'disabled':''}>${icon('back','small')}${tx(['上一步','Back'])}</button><button id="mobile-next" class="${forwardState().cls}" ${forwardState().disabled?'disabled':''}>${tx(forwardState().label)}${icon(forwardState().icon,'small')}</button></div></main><dialog id="mobile-dialog" aria-labelledby="mobile-dialog-title"><header><h2 id="mobile-dialog-title"></h2><button type="button" id="close-mobile-dialog">${tx(['关闭','Close'])}${icon('close','small')}</button></header><div id="mobile-dialog-content"></div></dialog>`;
