@@ -756,26 +756,15 @@ window.createMobileLesson = ({data, tx, t, esc, icon, announce, actionNames, ste
   function endingActivities(){const labels=item.activities?item.activities.map(a=>a.title):relatedTitles[item.id],headings=Array.isArray(labels)?labels:labels[data.audience];const extra=additionalActivities[item.id],rows=Array.isArray(extra)?extra:extra[data.audience];return activityIdeas().map((body,i)=>({title:headings[i],body})).concat(rows.map(([zh,en,bzh,ben])=>({title:[zh,en],body:[bzh,ben]})));}
   const atEnd=()=>active===frames.length;
   const positionLabel=()=>atEnd()?tx(['本课结束','End of lesson']):tx(['步骤 ','Step '])+(active+1)+' / '+frames.length;
-  const forwardState=()=>atEnd()?{label:['本课结束','Lesson end'],icon:'book',cls:'',disabled:true}:active===frames.length-1?{label:item.finalActivity?['开始课后实作','Start final activity']:['看看还能做什么','More things to try'],icon:'book',cls:'review-lesson',disabled:false}:{label:['下一步','Next'],icon:'arrow',cls:'primary',disabled:false};
-  function finalActivityHTML(activity){
-    return `<section class="final-activity" aria-labelledby="frame-heading">
-      <h2 id="frame-heading" tabindex="-1">${tx(activity.title)}</h2>
-      <p>${tx(activity.goal)}</p>
-      <ol>${activity.steps.map(step=>`<li>${tx(step)}</li>`).join('')}</ol>
-      <h3>${tx(['ChatGPT 提示词','ChatGPT prompt'])}</h3>
-      <blockquote class="stage-prompt">${tx(activity.prompt)}</blockquote>
-      <a class="button" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">${tx(['打开 ChatGPT','Open ChatGPT'])}</a>
-    </section>`;
-  }
+  const forwardState=()=>atEnd()?{label:['本课结束','Lesson end'],icon:'book',cls:'',disabled:true}:active===frames.length-1?{label:item.finalActivity?['结束本课','Finish lesson']:['看看还能做什么','More things to try'],icon:'book',cls:'review-lesson',disabled:false}:{label:['下一步','Next'],icon:'arrow',cls:'primary',disabled:false};
   function boundaryHTML(){
     const next=data.lessons[data.lessons.indexOf(item)+1];
     const finalActivity=item.finalActivity;
     const extra=data.audience==='hawkers'?(hawkerSupplementaryActivities[item.id]||[]):[];
     const activities=endingActivities().concat(extra.map(([zh,en,bzh,ben])=>({title:[zh,en],body:[bzh,ben]})));
-    const headingAttributes=finalActivity?'':' id="frame-heading" tabindex="-1"';
     return '<div class="lesson-boundary">'+
-      (finalActivity?finalActivityHTML(finalActivity):'')+
-      `<h2${headingAttributes}>${tx(['还可以这样试试','More things to try'])}</h2>`+
+      (finalActivity?`<a class="button primary final-activity-link" id="frame-heading" href="#final-activity">${tx(['开始课后实作','Start final activity'])}${icon('arrow')}</a>`:'')+
+      `<h2${finalActivity?'':' id="frame-heading" tabindex="-1"'}>${tx(['还可以这样试试','More things to try'])}</h2>`+
       `<ul class="similar-activities">${activities.map(a=>`<li><h3>${tx(a.title)}</h3><p>${tx(a.body)}</p></li>`).join('')}</ul>`+
       (next?`<a class="button start-next-lesson" href="#lesson/${esc(next.id)}"><span>${tx(['开始下一课','Start next lesson'])}<strong>${tx(next.title)}</strong></span>${icon('arrow')}</a>`:'')+
       `<a class="button boundary-contents" href="#contents">${tx(['返回学习内容','Back to contents'])}</a></div>`;
